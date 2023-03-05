@@ -8,7 +8,7 @@ const Signin=()=>{
     
     const navigate=useNavigate();
     const checkSession = () => {
-        axios.get("http://localhost:8000/check", { withCredentials:true }).then((res)=>{
+        axios.get("https://uttejeventproposalproject.onrender.com/check", { withCredentials:true }).then((res)=>{
             if(res.data.msg==="vendor"){
                 navigate("/view");
             }else if(res.data.msg==="user"){
@@ -27,7 +27,7 @@ const Signin=()=>{
        {
         if(vendor){
 
-            axios.post("http://localhost:8000/vendors/login",form,{withCredentials:true}).then((response)=>{
+            axios.post("https://uttejeventproposalproject.onrender.com/vendors/login",form,{withCredentials:true}).then((response)=>{
                 if(response.data.msg==="Success")
                 {
                  Swal.fire({
@@ -76,7 +76,7 @@ const Signin=()=>{
                 }
          });        }
         else{
-            axios.post("http://localhost:8000/users/login",form,{withCredentials:true}).then((response)=>{
+            axios.post("https://uttejeventproposalproject.onrender.com/users/login",form,{withCredentials:true}).then((response)=>{
                 if(response.data.message==="user logged in")
                 {
                  Swal.fire({

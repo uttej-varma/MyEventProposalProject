@@ -13,7 +13,7 @@ const EventInfo=(props)=>{
         {
             
            
-            axios.put(`http://localhost:8000/users/${props.user}`,{select:props.show._id})
+            axios.put(`https://uttejeventproposalproject.onrender.com/users/${props.user}`,{select:props.show._id})
             .then((response)=>{
                 Swal.fire({
                     title: 'Add this proposal?',
@@ -24,7 +24,7 @@ const EventInfo=(props)=>{
                   }).then((result) => {
                   
                     if (result.isConfirmed) {
-                        axios.get(`http://localhost:8000/events/${props.show._id}`,{withCredentials:true})
+                        axios.get(`https://uttejeventproposalproject.onrender.com/events/${props.show._id}`,{withCredentials:true})
                         .then((res)=>{
                             props.setSelect({isValid:true,data:res.data.result});
                             closeEventInfoHandler();

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const TopBar = ({ user }) => {
   const navigate = useNavigate()
   const checkSession = () => {
-    axios.get("http://localhost:8000/check", { withCredentials: true }).then((res) => {
+    axios.get("https://uttejeventproposalproject.onrender.com/check", { withCredentials: true }).then((res) => {
       if (res.data.msg !== "user") {
         navigate("/");
       }
@@ -16,7 +16,7 @@ const TopBar = ({ user }) => {
   }
   useEffect(() => { checkSession() }, [])
   const userLogout = () => {
-    axios.get("http://localhost:8000/users/logout", { withCredentials: true }).then((res) => {
+    axios.get("https://uttejeventproposalproject.onrender.com/users/logout", { withCredentials: true }).then((res) => {
       Swal.fire({
         title: 'Do you want to proceed with logout?',
         showDenyButton: true,

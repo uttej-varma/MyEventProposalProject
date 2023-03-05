@@ -8,11 +8,11 @@ import Swal from "sweetalert2";
 const HeaderDashboard = () => {
     const navigate = useNavigate();
     const checkSession = () => {
-        axios.get("http://localhost:8000/check", { withCredentials: true }).then((res) => {
+        axios.get("https://uttejeventproposalproject.onrender.com/check", { withCredentials: true }).then((res) => {
             if (res.data.msg !== "vendor") {
                 navigate("/");
             } else {
-                axios.get("http://localhost:8000/vendors/info", { withCredentials: true }).then(data => {
+                axios.get("https://uttejeventproposalproject.onrender.com/vendors/info", { withCredentials: true }).then(data => {
                     setVendorName(data.data.vendorName);
                 }).catch(err => {
                     console.log(err);
@@ -29,7 +29,7 @@ const HeaderDashboard = () => {
         <div>
             <span>{vendorName}</span>
             <button id="logout" onClick={() => {
-                axios.get("http://localhost:8000/vendors/logout", { withCredentials: true }).then(() => {
+                axios.get("https://uttejeventproposalproject.onrender.com/vendors/logout", { withCredentials: true }).then(() => {
                     Swal.fire({
                         title: 'Do you want to proceed with logout?',
                         showDenyButton: true,

@@ -12,7 +12,7 @@ const ViewProposal = ({ setUpdate }) => {
     const [search, setSearch] = useState("");
     const reloadData = (word) => {
         setTimeout(async () => {
-            const data = await axios.get(`http://localhost:8000/events/info`, { withCredentials: true })
+            const data = await axios.get(`https://uttejeventproposalproject.onrender.com/events/info`, { withCredentials: true })
                 if(word===""){
                     setProposals(data.data.result);
                     return;
@@ -86,7 +86,7 @@ const ViewProposal = ({ setUpdate }) => {
                                     denyButtonText: `Cancel`,
                                     }).then((result) => {
                                     if (result.isConfirmed) {
-                                        axios.delete(`http://localhost:8000/events/${data._id}`).then((response)=>{
+                                        axios.delete(`https://uttejeventproposalproject.onrender.com/events/${data._id}`).then((response)=>{
                                             reloadData("");
                                          }).catch(err=>{
                                              console.log(err);

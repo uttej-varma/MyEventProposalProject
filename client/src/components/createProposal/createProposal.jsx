@@ -59,7 +59,7 @@ const CreateProposal=()=>{
     }
     const clickHandler=async (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8000/events/add", allData, { withCredentials:true }).then(data=>{
+        axios.post("https://uttejeventproposalproject.onrender.com/events/add", allData, { withCredentials:true }).then(data=>{
             Swal.fire({
                 position: 'center',
                 icon: 'success',
