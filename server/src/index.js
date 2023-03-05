@@ -24,9 +24,9 @@ app.use(session({
     saveUninitialized: false,
     secret: "secret",
     cookie: {
-        secure:false,            ////secre should be true for https
+        secure:true,            ////secre should be true for https
         maxAge: 60*60*1000,
-        sameSite: "lax"       //////none for https............
+        sameSite: "none"       //////none for https............
     }
 }
 
