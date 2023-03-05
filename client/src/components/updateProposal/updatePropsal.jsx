@@ -24,7 +24,7 @@ const UpdateProposal=({update, setUpdate})=>{
         events:""
     })
     const getProposalData = () => {
-        axios.get(`http://localhost:8000/events/${update}`, { withCredentials:true }).then(data=>{
+        axios.get(`https://uttejeventproposalproject.onrender.com/events/${update}`, { withCredentials:true }).then(data=>{
             setAllData(data.data.result);
             setEveImg(data.data.result.eventImage);
             setVenImg(data.data.result.venueImage);
@@ -66,7 +66,7 @@ const UpdateProposal=({update, setUpdate})=>{
     }
     const clickHandler=async (e)=>{
         e.preventDefault();
-        axios.put(`http://localhost:8000/events/${update}`, allData).then(data=>{
+        axios.put(`https://uttejeventproposalproject.onrender.com/events/${update}`, allData).then(data=>{
             Swal.fire({
                 position: 'center',
                 icon: 'success',

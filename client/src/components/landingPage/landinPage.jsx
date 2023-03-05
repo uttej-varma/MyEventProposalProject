@@ -22,7 +22,7 @@ const LandingPage = () => {
             denyButtonText: `Cancel`
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:8000/users/${userInfo._id}`, { select: "" })
+                axios.put(`https://uttejeventproposalproject.onrender.com/users/${userInfo._id}`, { select: "" })
                     .then((response) => { setSelected({ isValid: false, data: {} }) })
                     .catch((e) => { console.log("error in deleting") })
 
@@ -30,11 +30,11 @@ const LandingPage = () => {
         })
     }
     const retriveUserInfo = () => {
-        axios.get("http://localhost:8000/users/info", { withCredentials: true })
+        axios.get("https://uttejeventproposalproject.onrender.com/users/info", { withCredentials: true })
             .then((response) => {
                 setUserInfo(response.data.result);
                 if (response.data.result.select) {
-                    axios.get(`http://localhost:8000/events/${response.data.result.select}`, { withCredentials: true })
+                    axios.get(`https://uttejeventproposalproject.onrender.com/events/${response.data.result.select}`, { withCredentials: true })
                         .then((response) => { setSelected({ isValid: true, data: response.data.result }) })
                         .catch((e) => { console.log(e) });
                 }
@@ -45,7 +45,7 @@ const LandingPage = () => {
             }).catch((e) => { console.log(e) });
     }
     const retriveProposals = () => {
-        axios.get("http://localhost:8000/events/all", { withCredentials: true })
+        axios.get("https://uttejeventproposalproject.onrender.com/events/all", { withCredentials: true })
             .then((response) => {
                 console.log(response.data);
                 setProposals(response.data.result);
